@@ -1,4 +1,5 @@
 import React from 'react'
+import Icono from '../Icono/Icono'
 
 const navbar = () => {
     return (
@@ -26,6 +27,8 @@ const navbar = () => {
       </ul>
     </div>
   </div>
+  <Icono/>
+
 </nav>
         </div>
     )
