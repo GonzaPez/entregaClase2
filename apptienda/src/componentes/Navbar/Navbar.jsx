@@ -29,7 +29,7 @@ const navbar = () => {
           </div>
         </div>
         <Icono />
-        <CartWitget stock={10}/>
+        <CartWitget />
 
       </nav>
     </div>
