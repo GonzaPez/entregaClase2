@@ -1,4 +1,5 @@
 import React from 'react'
+import CartWitget from '../CartWidget/CartWitget'
 import Icono from '../Icono/Icono'
 
 const navbar = () => {
@@ -28,6 +29,7 @@ const navbar = () => {
           </div>
         </div>
         <Icono />
+        <CartWitget stock={10}/>
 
       </nav>
     </div>
