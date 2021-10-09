@@ -6,6 +6,8 @@ import ItemCount from '../ItemCount/ItemCount';
 const Item = ({prod}) => {
 
     
+
+
     return (
         <div>
 
