@@ -1,9 +1,9 @@
 import React from 'react'
 
-const CartWitget = ({stock}) => {
+const CartWitget = ({cart}) => {
     return (
         <div className="d-flex">
-            <h3 className="text">{stock}</h3>
+            <h3 className="text">{cart}</h3>
             
         </div>
     )
