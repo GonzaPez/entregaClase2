@@ -1,36 +1,40 @@
 import './App.css';
 import Navbar from './componentes/Navbar/Navbar';
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemListContainer from './componentes/ItemListContainer/ItemListContainer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ItemCount from './componentes/ItemCount/ItemCount';
-import Item from './componentes/Item/Item';
 import CartWitget from './componentes/CartWidget/CartWitget';
+import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
+
 
 
 function App() {
 
-  const [cart, setCart]= useState (0);
+  const [cart, setCart] = useState(0);
 
-  const addCarrito = (items) => {setCart(cart+items)}
+  const addCarrito = (items) => { setCart(cart + items) }
 
   useEffect(() => {
     console.log("se agrego producto")
-   
+
   }, [cart])
 
   return (
     <div>
-
+      <BrowserRouter>
       <Navbar cart={cart} />
-      <ItemListContainer addCarrito={addCarrito}/>
-      <CartWitget/>
-      
+        <Switch>
+          <Route exact path="/" children={<ItemListContainer addCarrito={addCarrito} />} />
+          <Route exact path="/cart" children={<CartWitget/>} />
+          <Route exact path="/ItemDetail/:id" children={<ItemDetailContainer/>} />
+          </Switch>
+      </BrowserRouter>
+      {/* <ItemListContainer addCarrito={addCarrito}/> */}
+    
 
-      
 
-      
+
     </div>
   );
 }

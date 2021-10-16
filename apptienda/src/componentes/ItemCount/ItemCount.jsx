@@ -22,8 +22,8 @@ const ItemCount = ({ stock, addCarrito }) => {
         <div>
 
             <div>
-                <button class="btn btn-primary" onClick={agregar} >Sumar</button>
-                <button class="btn btn-secondary" onClick={remover} >Quitar</button>
+                <button className="btn btn-primary" onClick={agregar} >Sumar</button>
+                <button className="btn btn-secondary" onClick={remover} >Quitar</button>
                 <div>
                     <text> Quiero comprar: {items}</text>
                 </div>

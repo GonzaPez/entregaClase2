@@ -1,34 +1,29 @@
 import React, { useState } from 'react'
 import ItemCount from '../ItemCount/ItemCount';
+import { Link } from 'react-router-dom';
 
 
-
-const Item = ({prod}) => {
-
-    
-
-
+const Item = ({ prod }) => {
     return (
-        <div>
+        <div className="">
 
-            <div class="card text-center col-sm-4">
-                <div class="card-header">
-                    Peso Libre
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">{prod.nombre}</h5>
-                    <p class="card-text">Discos Bumper de Caucho, profesionales</p>
-                    <img src="https://static-abcblogs.abc.es/wp-content/uploads/sites/254/2021/04/DiscosOlimpicos1.jpg" class="col-sm-4" alt="...imagen de producto" />
-                    <ItemCount stock ={prod.stock}/>
-                    <div>
+            <div className="card text-center col-sm-24">
+                <div className="card-header">
                     
-                    </div>
-
                 </div>
-
+                <div className="card-body">
+                    <h5 className="card-title">{prod.nombre}</h5>
+                    <p className="card-text">{prod.modelo}</p>
+                    <p className="card-text">Unidades disponibles {prod.stock}</p>
+                    <img src={prod.img} className="col-sm-8" alt="...imagen de producto" />
+                    <ItemCount stock={prod.stock} />
+                    <div>
+                        <div> 
+                            <Link to={`/ItemDetail/${prod.id}`} className="btn btn-primary"> Detalle Del Modelo </Link>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-
         </div >
     )
 }
