@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CartWitget from './componentes/CartWidget/CartWitget';
 import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
+import CartContextProvider, { CartContext } from './componentes/Context/CartContext';
 
 
 
@@ -23,12 +24,14 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      <CartContextProvider>
       <Navbar cart={cart} />
         <Switch>
           <Route exact path="/" children={<ItemListContainer addCarrito={addCarrito} />} />
           <Route exact path="/cart" children={<CartWitget/>} />
           <Route exact path="/ItemDetail/:id" children={<ItemDetailContainer/>} />
           </Switch>
+      </CartContextProvider>
       </BrowserRouter>
       {/* <ItemListContainer addCarrito={addCarrito}/> */}
     

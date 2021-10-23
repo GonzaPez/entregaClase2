@@ -28,8 +28,7 @@ const navbar = () => {
         <Link to="/cart">
         <Icono />
         </Link >
-        <CartWitget />
-
+        
       </nav>
     </div>
   )

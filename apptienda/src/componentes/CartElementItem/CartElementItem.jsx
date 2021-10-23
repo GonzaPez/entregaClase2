@@ -1,28 +1,24 @@
-import React, { useState } from 'react'
-import ItemCount from '../ItemCount/ItemCount';
-import { Link } from 'react-router-dom';
-import { CartContext } from '../Context/CartContext';
+import React, {useContext} from 'react'
+import { CartContext } from '../Context/CartContext'
 
-
-const Item = ({ prod }) => {
-
-
+const CartElementItem = ({prod}) => {
+    const {deleteItem} = useContext(CartContext)
     return (
         <div className="">
 
             <div className="card text-center col-sm-24">
                 <div className="card-header">
-                    
+
                 </div>
                 <div className="card-body">
                     <h5 className="card-title">{prod.nombre}</h5>
                     <p className="card-text">{prod.modelo}</p>
                     <p className="card-text">Unidades disponibles {prod.stock}</p>
                     <img src={prod.img} className="col-sm-8" alt="...imagen de producto" />
-                    <ItemCount stock={prod.stock} producto={prod}/>
+                   
                     <div>
-                        <div> 
-                            <Link to={`/ItemDetail/${prod.id}`} className="btn btn-primary"> Detalle Del Modelo </Link>
+                        <div>
+                            <button onClick={()=>deleteItem(prod)} className="btn btn-primary"> Borrar del Carrito </button>
                         </div>
                     </div>
                 </div>
@@ -31,4 +27,4 @@ const Item = ({ prod }) => {
     )
 }
 
-export default Item
+export default CartElementItem
