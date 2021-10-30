@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../Context/CartContext'
 
 
+
 const CartElementItem = ({ prod }) => {
     const { deleteItem } = useContext(CartContext)
     console.log(prod)
@@ -14,9 +15,12 @@ const CartElementItem = ({ prod }) => {
                     </div>
                     <div className="col-md-8">
                         <div className="card-body">
-                            <h5 className="card-title">Card title</h5>
-                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 className="card-title">{prod.nombre}</h5>
+                            <p className="card-text">{prod.modelo}</p>
+                            <p className="card-text">Estas ordenando {prod.cantidad} unidades</p>
+                            <p className="card-text">Tu costo por este auto es de ${prod.precio}</p>
+                            <button onClick={()=>deleteItem(prod)} className="btn btn-primary">Borrar Del Carrito</button>
+                            
                         </div>
                     </div>
                 </div>
