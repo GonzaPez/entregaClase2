@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { CartContext } from '../Context/CartContext'
 import Item from '../Item/Item'
 import CartElementItem from '../CartElementItem/CartElementItem'
+import { Link } from 'react-router-dom'
 
 const CartWitget = () => {
 
@@ -15,7 +16,8 @@ const CartWitget = () => {
                     <h3 className="text">Esta Vacio el Carrito</h3>
                 </div>
             )}
-            <button className="btn btn-secondary"disabled={cart.length<1} onClick={resetCart} >Limpiar Carrito</button>
+            {cart.length > 0 ? (<button className="btn btn-secondary" onClick={resetCart} >Limpiar Carrito</button>) : (<Link className="btn btn-primary" to="/">Volver a Comprar</Link>) } 
+            
         </div>
     )
 }

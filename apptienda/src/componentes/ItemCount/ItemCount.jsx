@@ -3,20 +3,34 @@ import { CartContext } from '../Context/CartContext';
 const ItemCount = ({ stock, producto }) => {
     const { addToCart } = useContext(CartContext)
 
+
     const [items, setItems] = useState(1);
+    const [costo, setCosto] = useState(producto.precio)
+    const [product, setProduct] = useState({
+        ...producto,
+        cantidad: items,
+        precio: costo
+
+    })
+    
 
     function agregar() {
-        console.log(items)
-        console.log(stock)
-        if (items < stock) { setItems(items + 1) }
+
+        if (items < stock) {
+            setItems(items + 1)
+            setCosto((items+1)*costo)
+            setProduct({ ...product, cantidad: items + 1, precio: costo })
+
+        }
     }
 
     function remover() {
-        if (items > 1) { setItems(items - 1) }
+        if (items > 1) {
+            setItems(items - 1)
+
+            setProduct({ ...product, cantidad: items, precio: product.precio * items })
+        }
     }
-
-    function addCarrito() { }
-
 
     return (
         <div>
@@ -28,7 +42,7 @@ const ItemCount = ({ stock, producto }) => {
                     <text> Quiero comprar: {items}</text>
                 </div>
                 <div>
-                    <button onClick={() => addToCart(producto)} className="btn btn-success my-2">Agregar al Carrito</button>
+                    <button onClick={() => addToCart(product)} className="btn btn-success my-2">Agregar al Carrito</button>
                 </div>
 
             </div>

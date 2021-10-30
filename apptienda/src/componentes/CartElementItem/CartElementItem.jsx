@@ -1,24 +1,22 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { CartContext } from '../Context/CartContext'
 
-const CartElementItem = ({prod}) => {
-    const {deleteItem} = useContext(CartContext)
+
+const CartElementItem = ({ prod }) => {
+    const { deleteItem } = useContext(CartContext)
+    console.log(prod)
     return (
-        <div className="">
-
-            <div className="card text-center col-sm-24">
-                <div className="card-header">
-
-                </div>
-                <div className="card-body">
-                    <h5 className="card-title">{prod.nombre}</h5>
-                    <p className="card-text">{prod.modelo}</p>
-                    <p className="card-text">Unidades disponibles {prod.stock}</p>
-                    <img src={prod.img} className="col-sm-8" alt="...imagen de producto" />
-                   
-                    <div>
-                        <div>
-                            <button onClick={()=>deleteItem(prod)} className="btn btn-primary"> Borrar del Carrito </button>
+        <div className="container ">
+            <div className="card mb-3" style={{maxWidth: "540px"}}>
+                <div className="row g-0">
+                    <div className="col-md-4">
+                        <img src={prod.img} className="img-fluid rounded-start" alt="..."/>
+                    </div>
+                    <div className="col-md-8">
+                        <div className="card-body">
+                            <h5 className="card-title">Card title</h5>
+                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                     </div>
                 </div>
