@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Item from '../Item/Item'
 import Spinner from '../UI/Spinner/Spinner'
-// import {getFirestore} from '../services/getFirebase'
+import {getFirestore} from '../../services/getFirebase'
 
 
 const ItemListContainer = ({ addCarrito }) => {
@@ -10,7 +10,10 @@ const [loading, setLoading] = useState(false)
 //*sirve para mapear los elementos que luego levanto en card
 const [items, setItems] = useState(null)
 //detalle de los elementos
-// const db = getFirestore ()
+const [item, setItem] = useState({})
+//es para llamar a los objetos de firebase
+
+//console.log(db)
   const data = [
     { id: 0, nombre: "Ford Focus", modelo:"Modelo 2020", detalle:"", precio : 2000000, stock: 2,  img: "https://automotiva.com.ar/wp-content/uploads/2019/02/Ford-Focus_ST-2020-1280-0d-1.jpg" },
     { id: 1, nombre: "Honda Civic", modelo:"Modelo 2021", detalle:"", precio : 4000000, stock: 5, img: "https://img.autocosmos.com/noticias/fotos/extralarge/NAZ_31c8cdd941084435919eb08a3784651b.jpg" },
@@ -24,24 +27,34 @@ const [items, setItems] = useState(null)
 
 
 
-  useEffect(() => {  
+  useEffect(() => { 
     
+    const db = getFirestore ()
+    db.collection('Autos').get()//trae toda la coleccion
+    .then(resp => setItem(resp.docs.map(it =>({id: it.id, ...it.data()}))) )
+    console.log(item)
+
+
+
+
+    // db.collection('Autos').doc('yAlT5GmPwIkvNRrCDMFI').get()//trae un de la coleccion
+    // .then(resp => setItem({id: resp.id, ...resp.data()}) )
     //declaro que mientras espera de 3 segundos, no resuelve el data, y despues devuelve el result
-  const promise = new Promise ((resolve, reject) => {
+  // const promise = new Promise ((resolve, reject) => {
     //el State cambia para que cambie el estado de la carga y muestra el componente spinner
-    setLoading(true) 
+    // setLoading(true) 
     //define el tiempo el tiempo de ejecucion
-    setTimeout(() => {
+    // setTimeout(() => {
     //despues de 3 segundos, me devuelve el array de data
-      resolve(data)
+      // resolve(data)
     //cambia y no muestra mas el spinner
-    setLoading(false)
-    },2000);
+    // setLoading(false)
+    // },2000);
   })
   //una vez que tengo el resultado, asigno al state items
-  promise.then(result=>(setItems(result)))
+  // promise.then(result=>(setItems(result)))
    
-  }, [])
+  //}//, [])
   
   return (
     
