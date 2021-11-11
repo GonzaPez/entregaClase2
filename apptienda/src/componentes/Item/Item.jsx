@@ -5,7 +5,7 @@ import { CartContext } from '../Context/CartContext';
 
 
 const Item = ({ prod }) => {
-
+console.log(JSON.parse(prod.img))
 
     return (
         <div className="">
@@ -18,7 +18,7 @@ const Item = ({ prod }) => {
                     <h5 className="card-title">{prod.nombre}</h5>
                     <p className="card-text">{prod.modelo}</p>
                     <p className="card-text">Unidades disponibles {prod.stock}</p>
-                    <img src={prod.img} className="col-sm-8" alt="...imagen de producto" />
+                    <img src={JSON.parse(prod.img)} className="col-sm-8" alt="...imagen de producto" />
                     <ItemCount stock={prod.stock} producto={prod}/>
                     <div>
                         <div> 

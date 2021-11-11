@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import Spinner from '../UI/Spinner/Spinner'
+import {getFirestore} from '../../services/getFirebase'
 
 
 const ItemDetailContainer = () => {
@@ -14,20 +15,24 @@ const ItemDetailContainer = () => {
    
 
 
-    const getItem = () => {
-        setLoading(true)
-        new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(detalleAuto)
-            }, 2000);
-        }).then((res) => {
-            setLoading(false)
-            setItem(res)
-        })
-    }
+    // const getItem = () => {
+    //     // setLoading(true)
+    //     new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             resolve(detalleAuto)
+    //         }, 2000);
+    //     }).then((res) => {
+    //         setLoading(false)
+    //         setItem(res)
+    //     })
+    // }
 
     useEffect(() => {
-        getItem()
+        // getItem()
+        const db = getFirestore ()
+    db.collection('Autos').doc(id).get()//trae toda la coleccion
+    .then(resp => setItem ({id: resp.id, ...resp.data()}))
+    console.log(item)
 
     }, [])
     return (

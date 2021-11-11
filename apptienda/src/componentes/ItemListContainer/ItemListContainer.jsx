@@ -31,7 +31,7 @@ const [item, setItem] = useState({})
     
     const db = getFirestore ()
     db.collection('Autos').get()//trae toda la coleccion
-    .then(resp => setItem(resp.docs.map(it =>({id: it.id, ...it.data()}))) )
+    .then(resp => setItems(resp.docs.map(it =>({id: it.id, ...it.data()}))) )
     console.log(item)
 
 
@@ -50,12 +50,13 @@ const [item, setItem] = useState({})
     //cambia y no muestra mas el spinner
     // setLoading(false)
     // },2000);
-  })
+  }, [])
   //una vez que tengo el resultado, asigno al state items
   // promise.then(result=>(setItems(result)))
-   
+  let imagen = items && items [0].img
+  console.log(imagen)
   //}//, [])
-  
+  console.log(items)
   return (
     
     <div className="container d-fluid-center col-12">

@@ -7,6 +7,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import CartWitget from './componentes/CartWidget/CartWitget';
 import ItemDetailContainer from './componentes/ItemDetailContainer/ItemDetailContainer';
 import CartContextProvider, { CartContext } from './componentes/Context/CartContext';
+import Checkout from './componentes/Checkout/Checkout';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/" children={<ItemListContainer addCarrito={addCarrito} />} />
           <Route exact path="/cart" children={<CartWitget/>} />
           <Route exact path="/ItemDetail/:id" children={<ItemDetailContainer/>} />
+          <Route exact path="/Checkout" children ={<Checkout/>}/>
           </Switch>
       </CartContextProvider>
       </BrowserRouter>
