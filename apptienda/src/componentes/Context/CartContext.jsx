@@ -1,31 +1,39 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from "react";
+import { agruparItem, existeItem } from "../../Helpers";
 
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
-    const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
 
-const addToCart = (item)=>{
-    setCart ([...cart, item])
-}
-const resetCart = ()=>{
-    setCart([])
-}
-const deleteItem =(item)=>{
-    let filtrado = cart.filter((elemento)=>elemento.id !== item.id)
-    setCart(filtrado)
-}
-    return (
-        <CartContext.Provider value={{
-            cart,
-            setCart,
-            addToCart,
-            resetCart,
-            deleteItem,
-        }}>
-            {children}
-        </CartContext.Provider>
-    )
-}
+  const addToCart = (item) => {
+    if (existeItem(cart, item)) {
+      setCart(agruparItem(cart, item));
 
-export default CartContextProvider
+      return;
+    }
+    setCart([...cart, item]);
+  };
+  const resetCart = () => {
+    setCart([]);
+  };
+  const deleteItem = (item) => {
+    let filtrado = cart.filter((elemento) => elemento.id !== item.id);
+    setCart(filtrado);
+  };
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        setCart,
+        addToCart,
+        resetCart,
+        deleteItem,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export default CartContextProvider;

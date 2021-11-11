@@ -1,9 +1,0 @@
-.catalogo {
-    background-color: yellowgreen;
-    display: none
-}
-
-.catalogo-abierto {
-    background-color: green;
-    display: flex;
-}
