@@ -20,6 +20,7 @@ const Item = ({ prod }) => {
 
             <div>
               <div>
+                <br/>
                 <Link to={`/ItemDetail/${prod.id}`} className="btn btn-primary">
                   {" "}
                   Detalle Del Modelo{" "}

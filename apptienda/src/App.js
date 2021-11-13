@@ -37,6 +37,7 @@ function App() {
               path="/ItemDetail/:id"
               children={<ItemDetailContainer />}
             />
+            <Route exact path="/ItemDetail" children={<CartWitget />} />
             <Route exact path="/Checkout" children={<Checkout />} />
           </Switch>
         </CartContextProvider>

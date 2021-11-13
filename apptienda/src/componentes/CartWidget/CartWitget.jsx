@@ -12,7 +12,7 @@ const CartWitget = () => {
   let suma = sumarTotal(cart);
   const terminarCompra = () => {
     resetCart();
-    Swal.fire("Genial!!", "Muchas Gracias Por la Compra!");
+    Swal.fire("Su orden Num... ha sido creada", "Genial!!, Muchas Gracias Por la Compra!");
   };
   return (
     <div className="container">
