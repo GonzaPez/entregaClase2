@@ -4,13 +4,9 @@ import Spinner from "../UI/Spinner/Spinner";
 import { getFirestore } from "../../services/getFirebase";
 
 const ItemListContainer = ({ addCarrito }) => {
-  //*sirve para ocultar o mostrar el spinner
   const [loading, setLoading] = useState(false);
-  //*sirve para mapear los elementos que luego levanto en card
+
   const [items, setItems] = useState(null);
-  //detalle de los elementos
- 
-  //es para llamar a los objetos de firebase
 
   useEffect(() => {
     const db = getFirestore();
@@ -21,7 +17,6 @@ const ItemListContainer = ({ addCarrito }) => {
       );
   }, []);
 
-  
   return (
     <div className="container d-fluid-center col-12">
       {loading && <Spinner />}

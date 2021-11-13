@@ -1,0 +1,9 @@
+.contenedor{
+    background-image: linear-gradient(to bottom, white, gray) ;
+    display: flex;
+    justify-content: center;
+   flex-wrap: wrap;       
+    }
+.card{
+    display: flex;
+}

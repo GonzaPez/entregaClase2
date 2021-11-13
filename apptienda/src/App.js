@@ -41,7 +41,6 @@ function App() {
           </Switch>
         </CartContextProvider>
       </BrowserRouter>
-      {/* <ItemListContainer addCarrito={addCarrito}/> */}
     </div>
   );
 }

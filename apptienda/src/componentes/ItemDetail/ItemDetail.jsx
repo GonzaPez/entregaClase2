@@ -1,11 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
-// import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ autos }) => {
   return (
     <div>
-      <div className="card" style={{ width: "18rem" }}>
+      <div className="card text-center"  style={{ width: "25rem" }}>
         <div className="card-body">
           <img
             src={JSON.parse(autos.img)}
@@ -19,6 +19,9 @@ const ItemDetail = ({ autos }) => {
             Todos los modelos cuentan con amplia financiacion.
           </p>
           {autos && <ItemCount producto={autos} stock={autos.stock} />}
+          <Link to={`/CartWitget/${autos.id}`} className="btn btn-primary btn-red">           
+            Ir Al Carrito
+          </Link>
         </div>
       </div>
     </div>

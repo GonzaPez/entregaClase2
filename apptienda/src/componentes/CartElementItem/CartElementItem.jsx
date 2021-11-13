@@ -11,7 +11,7 @@ const CartElementItem = ({ prod }) => {
           <div className="col-md-4">
             <img
               src={JSON.parse(prod.img)}
-              className="img-fluid rounded-start"
+              className="img-fluid rounded-center"
               alt="..."
             />
           </div>

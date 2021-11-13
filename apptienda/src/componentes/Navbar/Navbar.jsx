@@ -1,11 +1,12 @@
 import React from "react";
 import Icono from "../Icono/Icono";
 import { Link } from "react-router-dom";
+import './Navbar.css'
 
 const navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             MarketCar
@@ -25,12 +26,12 @@ const navbar = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a className="nav-link active" href="/">
-                  Ofertas
+                  Autos
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link active" href="/">
-                  Categorias
+                  Camionetas
                 </a>
               </li>
             </ul>
