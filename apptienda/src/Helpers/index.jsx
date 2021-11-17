@@ -25,3 +25,17 @@ export function agruparItem(modelos, unidad){
     return nuevoArray
 
 }
+
+function vacios (campo){
+return campo === ""
+}
+
+export function chequearSiEstaVacio (campos){
+    let vacio = false;
+    for (let i = 0; i < campos.length; i++) {
+       if (vacios(campos[i] )) {
+           vacio = true
+       }        
+    }
+    return vacio
+}

@@ -19,7 +19,7 @@ const ItemDetail = ({ autos }) => {
             Todos los modelos cuentan con amplia financiacion.
           </p>
           {autos && <ItemCount producto={autos} stock={autos.stock} />}
-          <Link to={`/CartWitget/${autos.id}`} className="btn btn-primary btn-red">           
+          <Link to="/cart" className="btn btn-primary btn-red">           
             Ir Al Carrito
           </Link>
         </div>

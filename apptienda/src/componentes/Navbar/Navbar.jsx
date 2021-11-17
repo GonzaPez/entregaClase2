@@ -1,6 +1,6 @@
 import React from "react";
 import Icono from "../Icono/Icono";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
 
 const navbar = () => {
@@ -25,14 +25,14 @@ const navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" href="/">
+                <NavLink active to='/categoria/auto' className="nav-link" >
                   Autos
-                </a>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="/">
+                <NavLink active to='/categoria/camioneta' className="nav-link" >
                   Camionetas
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>

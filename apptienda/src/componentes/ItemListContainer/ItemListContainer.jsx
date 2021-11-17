@@ -3,7 +3,7 @@ import Item from "../Item/Item";
 import Spinner from "../UI/Spinner/Spinner";
 import { getFirestore } from "../../services/getFirebase";
 
-const ItemListContainer = ({ addCarrito }) => {
+const ItemListContainer = ({ categoria }) => {
   const [loading, setLoading] = useState(false);
 
   const [items, setItems] = useState(null);
@@ -17,12 +17,14 @@ const ItemListContainer = ({ addCarrito }) => {
       );
   }, []);
 
+  const filtrado = categoria && items ? items.filter((i) => i.categoria === categoria) : items;
+
   return (
     <div className="container d-fluid-center col-12">
       {loading && <Spinner />}
-      {items &&
-        items.map((producto) => {
-          return <Item prod={producto} addCarrito={addCarrito} />;
+      {items && 
+        filtrado.map((producto) => {
+          return <Item prod={producto} />;
         })}
     </div>
   );

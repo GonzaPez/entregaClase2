@@ -10,10 +10,7 @@ import Swal from "sweetalert2";
 const CartWitget = () => {
   const { cart, resetCart } = useContext(CartContext);
   let suma = sumarTotal(cart);
-  const terminarCompra = () => {
-    resetCart();
-    Swal.fire("Su orden Num... ha sido creada", "Genial!!, Muchas Gracias Por la Compra!");
-  };
+  
   return (
     <div className="container">
       <div className="row">
@@ -30,14 +27,8 @@ const CartWitget = () => {
           {cart.length > 0 && (
             <>
               <h2>Su total a pagar es : ${suma}</h2>
-              <Checkout />
-              <button
-                onClick={terminarCompra}
-                className="btn btn-primary w-100 my-4"
-              >
-                {" "}
-                Terminar Con La Compra{" "}
-              </button>
+              <Checkout carrito = {cart} total ={suma} resetCart={resetCart}/>
+
             </>
           )}
 

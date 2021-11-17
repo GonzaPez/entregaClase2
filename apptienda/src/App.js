@@ -8,6 +8,7 @@ import CartWitget from "./componentes/CartWidget/CartWitget";
 import ItemDetailContainer from "./componentes/ItemDetailContainer/ItemDetailContainer";
 import CartContextProvider from "./componentes/Context/CartContext";
 import Checkout from "./componentes/Checkout/Checkout";
+import Categoria from "./componentes/Categoria/Categoria";
 
 function App() {
   const [cart, setCart] = useState(0);
@@ -38,6 +39,7 @@ function App() {
               children={<ItemDetailContainer />}
             />
             <Route exact path="/ItemDetail" children={<CartWitget />} />
+            <Route exact path="/categoria/:categoria" children={<Categoria />} />
             <Route exact path="/Checkout" children={<Checkout />} />
           </Switch>
         </CartContextProvider>
