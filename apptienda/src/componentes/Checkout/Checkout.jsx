@@ -28,7 +28,7 @@ const generarTicket = async () =>{
   const doc = await collection.add(datos);
   console.log(datos)
   resetCart()
-  Swal.fire("Su orden Num... ha sido creada", "Genial!!, Muchas Gracias Por la Compra!");
+  Swal.fire("Su orden ha sido creada", "Genial!!, Muchas Gracias Por la Compra!");
   } catch (error) {
     console.log(error)
     
