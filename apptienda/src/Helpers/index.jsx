@@ -9,10 +9,11 @@ export function sumarTotal (array){
     return suma
 }
 
-export function existeItem (caja, taza){
-let existe = false 
-caja.map((item) => item.id === taza.id ? existe = true : existe=false)
-return existe
+export function existeItem (carrito, item){
+    return carrito.some((c)=> c.id === item.id)
+// let existe = false 
+// caja.map((item) => item.id === taza.id ? existe = true : existe=false)
+// return existe
 }
 
 export function agruparItem(modelos, unidad){
