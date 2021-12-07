@@ -14,6 +14,7 @@ const ItemDetail = ({ autos }) => {
           />
           <h2 className="card-title">{autos.nombre}</h2>
           <h2 className="card-title">{autos.detalle}</h2>
+          <h3 className="card-title">Precio Unitario ${autos.precio}</h3>
           <h3 className="card-subtitle mb-2 text-muted">Oportunidad!!!</h3>
           <p className="card-text">
             Todos los modelos cuentan con amplia financiacion.

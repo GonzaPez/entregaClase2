@@ -1,4 +1,4 @@
-import React,  {useState} from "react";
+import React,  {useState, useEffect} from "react";
 import Swal from "sweetalert2";
 import { chequearSiEstaVacio } from "../../Helpers";
 import { getFirestore } from "../../services/getFirebase";
@@ -26,9 +26,19 @@ const generarTicket = async () =>{
     const db = getFirestore();
   const collection = db.collection("Ordenes");
   const doc = await collection.add(datos);
+  
   console.log(datos)
+ 
+  console.log(doc.id)
+ 
   resetCart()
-  Swal.fire("Su orden ha sido creada", "Genial!!, Muchas Gracias Por la Compra!");
+  
+  Swal.fire({
+    icon:'success',
+    title:'SU NUMERO DE ORDEN ES',
+      html: `<h3> <b>#${doc.id}</b> </h3> <h6>GRACIAS POR SU COMPRA</h6>`,
+       });
+
   } catch (error) {
     console.log(error)
     
@@ -76,14 +86,14 @@ const generarTicket = async () =>{
           name="mail" 
           value={mail}
           onChange={handleChange}
-          class="form-control is-invalid"
+          className="form-control"
           id="validationServerUsername"
           aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback"
           required
         />
-        <div id="validationServerUsernameFeedback" className="invalid-feedback">
+        {/* <div id="validationServerUsernameFeedback" className="invalid-feedback">
           Ingrese un Email Valido.
-        </div>
+        </div> */}
         <button
                 onClick={generarTicket}
                 className="btn btn-primary w-100 my-4"
